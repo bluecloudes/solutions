@@ -17,6 +17,10 @@ public class LongestIncresingSequence
 	 */
     public int lengthByDynamicProgramming(int[] list) {
     	
+    	System.out.println("Performing LongestIncresingSequence by dynamic programming");
+    	System.out.println("input : " + Arrays.toString(list));
+    	
+    	
     	int[] lenghtTracker = new int[list.length];
     	
     	for (int i = 0; i < lenghtTracker.length; i++) {
@@ -30,11 +34,15 @@ public class LongestIncresingSequence
     			}
     		}
     	}
-    	
-    	return Arrays.stream(lenghtTracker).summaryStatistics().getMax();
+    	int result = Arrays.stream(lenghtTracker).summaryStatistics().getMax();
+    	System.out.println("result : " + result);
+    	return result;
      }
     
     public int length(int[] list) {
+    	
+    	System.out.println("Performing LongestIncresingSequence on O(NlogN)");
+    	System.out.println("input : " + Arrays.toString(list));
     	
     	if(list.length == 0) {
     		return 0;
@@ -53,8 +61,8 @@ public class LongestIncresingSequence
 			} else {
 				sequenceTracker[ceil(sequenceTracker, -1, size-1, list[i])] = list[i];
 			}
-			System.out.println(Arrays.toString(sequenceTracker));
 		}
+    	System.out.println("result : " + size);
     	return size;
     }
 
