@@ -27,7 +27,9 @@ public class TestAll
      */
     public static Test suite()
     {
-        return new TestSuite( LongestIncresingSequenceTest.class );
+        TestSuite testSuit = new TestSuite( LongestIncresingSequenceTest.class );
+        testSuit.addTestSuite(ChangeMakingProblemTest.class);
+        return testSuit;
     }
 
     /**
