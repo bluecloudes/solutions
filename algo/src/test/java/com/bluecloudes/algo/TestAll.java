@@ -29,6 +29,8 @@ public class TestAll
     {
         TestSuite testSuit = new TestSuite( LongestIncresingSequenceTest.class );
         testSuit.addTestSuite(ChangeMakingProblemTest.class);
+        testSuit.addTestSuite(MinimumPlatformCountTest.class);
+        
         return testSuit;
     }
 
