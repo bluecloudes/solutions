@@ -31,7 +31,7 @@ public class LongestIncresingSequenceTest
      */
     public void testApp()
     {
-        assertTrue( longestIncresingSequence.lengthByDynamicProgramming(input) == 6 );
-        assertTrue( longestIncresingSequence.length(input) == 6 );
+        assertTrue( longestIncresingSequence.lengthDp(input) == 6 );
+        assertTrue( longestIncresingSequence.lengthByBinary(input) == 6 );
     }
 }
