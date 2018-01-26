@@ -1,6 +1,7 @@
 package com.bluecloudes.algo;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 
 public class ChangeMakingProblem {
@@ -47,6 +48,31 @@ public class ChangeMakingProblem {
 		}
 			
 		return Math.min(1+ withR, withOutR);
+	}
+	
+	public int byDp(int[] coins, int amount) {
+		if(coins.length < 1) {
+			return 0;
+		}
+		int[] dp = new int[amount+1];
+		Arrays.fill(dp, Integer.MAX_VALUE);
+		
+		dp[0] = 0;
+		for(int coin:coins) {
+			for (int i = coin; i <= amount; i++) {
+				System.out.println(i+"."+Arrays.toString(dp));
+				dp[i] = Math.min(dp[i], (dp[i-coin]==Integer.MAX_VALUE)?Integer.MAX_VALUE:1+dp[i-coin]);
+			}
+		}
+		System.out.println(Arrays.toString(dp));
+		return dp[amount];
+	}
+	
+	public static void main(String[] args) {
+		int[] coins = {2};
+		int amount = 3;
+		ChangeMakingProblem problem = new ChangeMakingProblem();
+		System.out.println(problem.byDp(coins, amount));
 	}
 	
 	public int byDyanamicProgramming(int[] coins, int cash) {
